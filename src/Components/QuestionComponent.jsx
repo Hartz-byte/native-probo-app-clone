@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const QuestionScreen = () => {
+const QuestionComponent = () => {
   return (
     <View>
       <Text>QuestionScreen</Text>
@@ -11,4 +11,4 @@ const QuestionScreen = () => {
 
 const styles = StyleSheet.create({});
 
-export default QuestionScreen;
+export default QuestionComponent;
