@@ -10,7 +10,6 @@ import ProfileScreen from "../Screens/ProfileScreen";
 
 import {
   AntDesign,
-  MaterialIcons,
   Feather,
   MaterialCommunityIcons,
   Ionicons,
