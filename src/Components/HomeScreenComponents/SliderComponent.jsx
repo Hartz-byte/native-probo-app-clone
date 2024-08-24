@@ -7,19 +7,43 @@ const SliderComponent = ({ items, condition }) => {
       <FlatList
         horizontal
         data={items}
-        keyExtractor={(item) => item.title}
+        // keyExtractor={(item) => item.title}
         showsHorizontalScrollIndicator={false}
-        renderItem={({ item }) => {
+        renderItem={({ item, index }) => {
           return (
-            <View style={styles.sliderContainer}>
-              <View style={styles.itemBox}>
+            <View style={styles.sliderContainer} key={index}>
+              <View
+                style={[
+                  styles.itemBox,
+                  condition ? styles.wideBox : styles.smallBox,
+                ]}
+              >
                 <View style={styles.displayFlex}>
                   <View>
-                    <Text style={styles.text}>{item.title}</Text>
-                    <Text style={styles.text2}>{item.subtitle}</Text>
+                    {/* title text */}
+                    <Text
+                      style={[
+                        styles.text,
+                        condition ? styles.wideText : styles.smallText,
+                      ]}
+                    >
+                      {item.title}
+                    </Text>
+                    {/* sub title text */}
+                    <Text
+                      style={[
+                        styles.text2,
+                        condition ? styles.wideText2 : styles.smallText2,
+                      ]}
+                    >
+                      {item.subtitle}
+                    </Text>
                   </View>
 
+                  {/* increament text */}
                   <Text style={styles.text3}>{item.increament}</Text>
+
+                  {/* image */}
                 </View>
               </View>
             </View>
@@ -35,32 +59,58 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginTop: 20,
   },
+
   itemBox: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  wideBox: {
+    width: 385,
+    height: 130,
+    backgroundColor: "white",
+    margin: 10,
+  },
+  smallBox: {
     width: 250,
     height: 80,
     backgroundColor: "#1c1c1e",
-    justifyContent: "center",
-    alignItems: "center",
     margin: 10,
     borderRadius: 12,
   },
+
   text: {
-    color: "white",
     letterSpacing: 1,
     fontWeight: "bold",
+  },
+  wideText: {
+    color: "black",
+    fontSize: 14,
+  },
+  smallText: {
+    color: "white",
     fontSize: 18,
   },
+
   text2: {
     color: "gray",
     letterSpacing: 1,
+  },
+  wideText2: {
+    fontSize: 8,
+    width: 255,
+    marginTop: 10,
+  },
+  smallText2: {
     fontSize: 18,
   },
+
   text3: {
     color: "green",
     letterSpacing: 1,
     fontSize: 18,
     marginTop: 25,
   },
+
   displayFlex: {
     flexDirection: "row",
     gap: 10,
