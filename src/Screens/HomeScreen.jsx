@@ -1,9 +1,9 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, SafeAreaView, ScrollView } from "react-native";
 
 import HeaderComponent from "../Components/HomeScreenComponents/HeaderComponent";
 import SliderComponent from "../Components/HomeScreenComponents/SliderComponent";
-import BackgroundStory from "../Components/HomeScreenComponents/BackgroundStory";
+import YesNoComponent from "../Components/HomeScreenComponents/YesNoComponent";
 
 import { SliderItem, SliderItem2 } from "../Utils/SliderItem";
 
@@ -13,12 +13,16 @@ const HomeScreen = () => {
       {/* header component */}
       <HeaderComponent />
 
-      {/* small slider component */}
-      <SliderComponent items={SliderItem} />
+      <ScrollView>
+        {/* small slider component */}
+        <SliderComponent items={SliderItem} />
 
-      {/* big slider component */}
-      {/* <BackgroundStory /> */}
-      <SliderComponent items={SliderItem2} condition={true} />
+        {/* big slider component */}
+        <SliderComponent items={SliderItem2} condition={true} />
+
+        {/* yes no component */}
+        <YesNoComponent />
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -26,7 +30,7 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#101011",
+    backgroundColor: "#171717",
   },
 });
 

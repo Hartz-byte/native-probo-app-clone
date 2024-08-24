@@ -1,14 +1,15 @@
 import { StyleSheet, View } from "react-native";
 import { StatusBar } from "expo-status-bar";
 
-import TabNavigator from "./src/TabNavigator/TabNavigator";
+import TabNavigator from "./src/Navigation/TabNavigator";
+import MainTabNavigator from "./src/Navigation/MainTabNavigator";
 
 export default function App() {
   return (
     <View style={styles.container}>
       {/* <StatusBar style="auto" /> */}
 
-      <TabNavigator />
+      <MainTabNavigator />
     </View>
   );
 }
@@ -16,6 +17,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0D0D0D",
+    backgroundColor: "#171717",
   },
 });

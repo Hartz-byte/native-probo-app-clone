@@ -68,7 +68,8 @@ const styles = StyleSheet.create({
     width: 385,
     height: 130,
     backgroundColor: "white",
-    margin: 10,
+    marginLeft: 10,
+    marginRight: 10,
   },
   smallBox: {
     width: 250,

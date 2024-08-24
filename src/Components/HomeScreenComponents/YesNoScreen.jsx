@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from "react-native";
 
-const YesNoComponent = () => {
+const YesNoScreen = () => {
   return (
     <View>
       <Text>YesNoScreen</Text>
@@ -11,4 +11,4 @@ const YesNoComponent = () => {
 
 const styles = StyleSheet.create({});
 
-export default YesNoComponent;
+export default YesNoScreen;
