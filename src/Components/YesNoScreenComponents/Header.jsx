@@ -1,17 +1,27 @@
 import React from "react";
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  Image,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { AntDesign } from "@expo/vector-icons";
 
 import CricketImage from "../../Assets/ipl.png";
 
 const Header = () => {
+  const navigation = useNavigation();
+
   return (
-    <View>
+    <SafeAreaView>
       {/* back and share buttons */}
       <View style={styles.topContainer}>
         <View style={styles.buttonFlex}>
           {/* back arrow icon */}
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
             <AntDesign name="arrowleft" size={30} color="white" />
           </TouchableOpacity>
 
@@ -41,7 +51,7 @@ const Header = () => {
 
       {/* border */}
       <View style={styles.border} />
-    </View>
+    </SafeAreaView>
   );
 };
 

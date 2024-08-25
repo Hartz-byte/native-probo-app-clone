@@ -1,16 +1,18 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
+import { StyleSheet, ScrollView } from "react-native";
 
 import Header from "../Components/YesNoScreenComponents/Header";
+import MarketPredict from "../Components/YesNoScreenComponents/MarketPredict";
 
 const YesNoScreen = () => {
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <ScrollView style={styles.mainContainer}>
       {/* header component */}
       <Header />
 
       {/* the market predict component */}
-    </SafeAreaView>
+      <MarketPredict />
+    </ScrollView>
   );
 };
 
