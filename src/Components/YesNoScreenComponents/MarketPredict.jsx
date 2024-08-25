@@ -210,6 +210,7 @@ const styles = StyleSheet.create({
   colorBox: {
     width: 20,
     height: 20,
+    borderRadius: 4,
   },
 
   colorFlex: {

@@ -38,12 +38,16 @@ const YesNoComponent = () => {
         <View style={styles.contentContainer}>
           {/* yes button */}
           <TouchableOpacity style={styles.yesButton}>
-            <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
+            <View style={styles.internalYesButton}>
+              <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
+            </View>
           </TouchableOpacity>
 
           {/* no button */}
           <TouchableOpacity style={styles.noButton}>
-            <Text style={styles.buttonText}>No ₹ 4.7</Text>
+            <View style={styles.internalNoButton}>
+              <Text style={styles.buttonText}>No ₹ 4.7</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
@@ -179,16 +183,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#144CC7",
-
-    shadowColor: "gray",
-    shadowOffset: {
-      width: 7,
-      height: 7,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    backgroundColor: "#0F3995",
   },
   noButton: {
     width: 165,
@@ -198,16 +193,28 @@ const styles = StyleSheet.create({
     marginTop: 30,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#06C270",
+    backgroundColor: "#089558",
+    justifyContent: "center",
+    alignItems: "center",
+  },
 
-    shadowColor: "gray",
-    shadowOffset: {
-      width: 7,
-      height: 7,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+  internalYesButton: {
+    width: 160,
+    height: 54,
+    backgroundColor: "#fff",
+    borderRadius: 7,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#144CC7",
+  },
+  internalNoButton: {
+    width: 160,
+    height: 54,
+    backgroundColor: "#fff",
+    borderRadius: 7,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#06C270",
   },
 
   buttonText: {
