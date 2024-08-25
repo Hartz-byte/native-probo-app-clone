@@ -43,7 +43,7 @@ const HeaderComponent = () => {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: 90,
+    height: 120,
     backgroundColor: "black",
     flexDirection: "row",
     justifyContent: "space-between",

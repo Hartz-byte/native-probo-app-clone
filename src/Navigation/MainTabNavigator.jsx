@@ -5,7 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import TabNavigator from "./TabNavigator";
-import YesNoScreen from "../Components/HomeScreenComponents/YesNoScreen";
+import YesNoScreen from "../Screens/YesNoScreen";
 
 const MainTabNavigator = () => {
   const Stack = createNativeStackNavigator();
