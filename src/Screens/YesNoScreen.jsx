@@ -3,6 +3,7 @@ import { StyleSheet, ScrollView } from "react-native";
 
 import Header from "../Components/YesNoScreenComponents/Header";
 import MarketPredict from "../Components/YesNoScreenComponents/MarketPredict";
+import Activity from "../Components/YesNoScreenComponents/Activity";
 
 const YesNoScreen = () => {
   return (
@@ -12,6 +13,9 @@ const YesNoScreen = () => {
 
       {/* the market predict component */}
       <MarketPredict />
+
+      {/* activity component */}
+      <Activity />
     </ScrollView>
   );
 };
