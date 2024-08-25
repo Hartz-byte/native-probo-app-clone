@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, FlatList } from "react-native";
+import { StyleSheet, View, Text, FlatList, Image } from "react-native";
 
 const SliderComponent = ({ items, condition }) => {
   return (
@@ -18,32 +18,54 @@ const SliderComponent = ({ items, condition }) => {
                   condition ? styles.wideBox : styles.smallBox,
                 ]}
               >
-                <View style={styles.displayFlex}>
-                  <View>
-                    {/* title text */}
-                    <Text
-                      style={[
-                        styles.text,
-                        condition ? styles.wideText : styles.smallText,
-                      ]}
-                    >
-                      {item.title}
-                    </Text>
-                    {/* sub title text */}
-                    <Text
-                      style={[
-                        styles.text2,
-                        condition ? styles.wideText2 : styles.smallText2,
-                      ]}
-                    >
-                      {item.subtitle}
-                    </Text>
-                  </View>
+                <View
+                  style={
+                    condition && !item.title
+                      ? styles.displayBanner
+                      : styles.displayFlex
+                  }
+                >
+                  {/* title and sub title text */}
+                  {item.title ? (
+                    <View>
+                      {/* title text */}
+                      <Text
+                        style={[
+                          styles.text,
+                          condition ? styles.wideText : styles.smallText,
+                        ]}
+                      >
+                        {item.title}
+                      </Text>
+
+                      {/* sub title text */}
+                      <Text
+                        style={[
+                          styles.text2,
+                          condition ? styles.wideText2 : styles.smallText2,
+                        ]}
+                      >
+                        {item.subtitle}
+                      </Text>
+                    </View>
+                  ) : null}
 
                   {/* increament text */}
-                  <Text style={styles.text3}>{item.increament}</Text>
+                  {item.increament ? (
+                    <Text style={styles.text3}>{item.increament}</Text>
+                  ) : null}
 
                   {/* image */}
+                  <Image
+                    source={item.image}
+                    style={
+                      condition && !item.title
+                        ? styles.largeImage
+                        : condition
+                        ? styles.bannerImage
+                        : styles.image
+                    }
+                  />
                 </View>
               </View>
             </View>
@@ -98,7 +120,7 @@ const styles = StyleSheet.create({
   },
   wideText2: {
     fontSize: 8,
-    width: 255,
+    width: 225,
     marginTop: 10,
   },
   smallText2: {
@@ -114,7 +136,22 @@ const styles = StyleSheet.create({
 
   displayFlex: {
     flexDirection: "row",
-    gap: 10,
+    alignItems: "center",
+    gap: 20,
+  },
+  displayBanner: {},
+
+  image: {
+    width: 50,
+    height: 50,
+  },
+  bannerImage: {
+    width: 100,
+    height: 50,
+  },
+  largeImage: {
+    width: 385,
+    height: 130,
   },
 });
 

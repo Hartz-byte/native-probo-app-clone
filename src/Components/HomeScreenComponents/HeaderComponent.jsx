@@ -3,7 +3,11 @@ import { StyleSheet, View, Text, TouchableOpacity, Switch } from "react-native";
 import { MaterialIcons, SimpleLineIcons } from "@expo/vector-icons";
 
 const HeaderComponent = () => {
-  const [isLive, setIsLive] = useState(false);
+  const [toggle, setToggel] = useState(false);
+
+  const handleToggle = () => {
+    setToggel(!toggle);
+  };
 
   return (
     <View style={styles.container}>
@@ -21,11 +25,11 @@ const HeaderComponent = () => {
         {/* toggle icon */}
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
-          onValueChange={setIsLive}
-          value={isLive}
+          onValueChange={handleToggle}
+          value={toggle}
         />
 
-        <Text style={styles.text}>LIVE</Text>
+        <Text style={toggle ? styles.liveText : styles.text}>LIVE</Text>
 
         {/* notification icon */}
         <TouchableOpacity style={styles.circle}>
@@ -45,11 +49,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
   },
+
   text: {
     color: "white",
     letterSpacing: 1,
     fontSize: 20,
   },
+  liveText: {
+    color: "red",
+    letterSpacing: 1,
+    fontSize: 20,
+  },
+
   displayFlex: {
     flexDirection: "row",
     alignItems: "center",
@@ -62,6 +73,7 @@ const styles = StyleSheet.create({
     gap: 10,
     marginRight: 15,
   },
+
   circle: {
     width: 40,
     height: 40,
