@@ -35,10 +35,6 @@ const TabNavigator = () => {
           backgroundColor: "black",
           borderTopWidth: 2,
           borderTopColor: "white",
-
-          // borderTopStartRadius: 0,
-          // borderTopEndRadius: 0,
-
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
           height: "12%",
