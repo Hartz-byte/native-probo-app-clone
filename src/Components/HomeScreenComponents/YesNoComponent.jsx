@@ -11,9 +11,15 @@ const YesNoComponent = () => {
   const navigation = useNavigation();
 
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedButton, setSelectedButton] = useState(null);
 
   const toggleModal = () => {
     setIsModalVisible(!isModalVisible);
+  };
+
+  const handleButtonClick = (button) => {
+    setSelectedButton(button);
+    toggleModal();
   };
 
   return (
@@ -50,7 +56,7 @@ const YesNoComponent = () => {
             {/* yes button */}
             <TouchableOpacity
               style={styles.yesButton}
-              onPress={() => toggleModal()}
+              onPress={() => handleButtonClick("yes")}
             >
               <View style={styles.internalYesButton}>
                 <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
@@ -60,7 +66,7 @@ const YesNoComponent = () => {
             {/* no button */}
             <TouchableOpacity
               style={styles.noButton}
-              onPress={() => toggleModal()}
+              onPress={() => handleButtonClick("no")}
             >
               <View style={styles.internalNoButton}>
                 <Text style={styles.buttonText}>No ₹ 4.7</Text>
@@ -86,7 +92,7 @@ const YesNoComponent = () => {
       >
         <View style={styles.modalContent}>
           {/* prcing component */}
-          <PricingComponent />
+          <PricingComponent selectedButton={selectedButton} />
         </View>
       </Modal>
     </View>

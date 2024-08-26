@@ -12,6 +12,7 @@
     "@emotion/react": "^11.13.3",
     "@expo/metro-runtime": "~3.2.3",
     "@fortawesome/react-native-fontawesome": "^0.3.2",
+    "@react-native-community/slider": "4.5.2",
     "@react-navigation/bottom-tabs": "^6.6.1",
     "@react-navigation/native": "^6.1.18",
     "@react-navigation/native-stack": "^6.11.0",
@@ -22,11 +23,11 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.5",
+    "react-native-expo-swipe-button": "^1.0.2",
     "react-native-gifted-charts": "^1.4.30",
     "react-native-modal": "^13.0.1",
     "react-native-vector-icons": "^10.1.0",
-    "react-native-web": "~0.19.10",
-    "@react-native-community/slider": "4.5.2"
+    "react-native-web": "~0.19.10"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
