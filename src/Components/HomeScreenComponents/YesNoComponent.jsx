@@ -1,134 +1,94 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import Modal from "react-native-modal";
+
+import PricingComponent from "./PricingComponent";
 
 import IplLogo from "../../Assets/IPLLogo.png";
 
 const YesNoComponent = () => {
   const navigation = useNavigation();
 
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const toggleModal = () => {
+    setIsModalVisible(!isModalVisible);
+  };
+
   return (
     <View>
-      {/* first */}
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => navigation.navigate("YesNoScreen")}
-      >
-        {/* title, sub title and image */}
-        <View style={styles.contentContainer}>
-          <View>
-            {/* title */}
-            <Text style={styles.titleText}>
-              Kolkata to win the match vs Mumbai?
-            </Text>
+      {/* yes no cards */}
+      {[...Array(3)].map((_, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.container}
+          onPress={() => navigation.navigate("YesNoScreen")}
+        >
+          {/* title, sub title and image */}
+          <View style={styles.contentContainer}>
+            <View>
+              {/* title */}
+              <Text style={styles.titleText}>
+                Kolkata to win the match vs Mumbai?
+              </Text>
 
-            {/* sub title */}
-            <Text style={styles.subtitleText}>
-              H2H last 5 T20 : Kolkata 4, Mumbai 1, DRAW 0
-            </Text>
-          </View>
-
-          {/* image */}
-          <View style={styles.imageContainer}>
-            <Image source={IplLogo} style={styles.image} />
-          </View>
-        </View>
-
-        {/* buttons */}
-        <View style={styles.contentContainer}>
-          {/* yes button */}
-          <TouchableOpacity style={styles.yesButton}>
-            <View style={styles.internalYesButton}>
-              <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
+              {/* sub title */}
+              <Text style={styles.subtitleText}>
+                H2H last 5 T20 : Kolkata 4, Mumbai 1, DRAW 0
+              </Text>
             </View>
-          </TouchableOpacity>
 
-          {/* no button */}
-          <TouchableOpacity style={styles.noButton}>
-            <View style={styles.internalNoButton}>
-              <Text style={styles.buttonText}>No ₹ 4.7</Text>
+            {/* image */}
+            <View style={styles.imageContainer}>
+              <Image source={IplLogo} style={styles.image} />
             </View>
-          </TouchableOpacity>
-        </View>
-      </TouchableOpacity>
+          </View>
 
-      {/* second */}
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => navigation.navigate("YesNoScreen")}
+          {/* buttons */}
+          <View style={styles.contentContainer}>
+            {/* yes button */}
+            <TouchableOpacity
+              style={styles.yesButton}
+              onPress={() => toggleModal()}
+            >
+              <View style={styles.internalYesButton}>
+                <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* no button */}
+            <TouchableOpacity
+              style={styles.noButton}
+              onPress={() => toggleModal()}
+            >
+              <View style={styles.internalNoButton}>
+                <Text style={styles.buttonText}>No ₹ 4.7</Text>
+              </View>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      ))}
+
+      {/* model */}
+      <Modal
+        isVisible={isModalVisible}
+        onBackdropPress={toggleModal}
+        animationIn="slideInUp"
+        animationOut="slideOutDown"
+        animationInTiming={500}
+        animationOutTiming={500}
+        useNativeDriver={true}
+        style={{
+          margin: 0,
+          justifyContent: "flex-end",
+        }}
       >
-        {/* title, sub title and image */}
-        <View style={styles.contentContainer}>
-          <View>
-            {/* title */}
-            <Text style={styles.titleText}>
-              Kolkata to win the match vs Mumbai?
-            </Text>
-
-            {/* sub title */}
-            <Text style={styles.subtitleText}>
-              H2H last 5 T20 : Kolkata 4, Mumbai 1, DRAW 0
-            </Text>
-          </View>
-
-          {/* image */}
-          <View style={styles.imageContainer}>
-            <Image source={IplLogo} style={styles.image} />
-          </View>
+        <View style={styles.modalContent}>
+          {/* prcing component */}
+          <PricingComponent />
         </View>
-
-        {/* buttons */}
-        <View style={styles.contentContainer}>
-          {/* yes button */}
-          <TouchableOpacity style={styles.yesButton}>
-            <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
-          </TouchableOpacity>
-
-          {/* no button */}
-          <TouchableOpacity style={styles.noButton}>
-            <Text style={styles.buttonText}>No ₹ 4.7</Text>
-          </TouchableOpacity>
-        </View>
-      </TouchableOpacity>
-
-      {/* third */}
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => navigation.navigate("YesNoScreen")}
-      >
-        {/* title, sub title and image */}
-        <View style={styles.contentContainer}>
-          <View>
-            {/* title */}
-            <Text style={styles.titleText}>
-              Kolkata to win the match vs Mumbai?
-            </Text>
-
-            {/* sub title */}
-            <Text style={styles.subtitleText}>
-              H2H last 5 T20 : Kolkata 4, Mumbai 1, DRAW 0
-            </Text>
-          </View>
-
-          {/* image */}
-          <View style={styles.imageContainer}>
-            <Image source={IplLogo} style={styles.image} />
-          </View>
-        </View>
-
-        {/* buttons */}
-        <View style={styles.contentContainer}>
-          {/* yes button */}
-          <TouchableOpacity style={styles.yesButton}>
-            <Text style={styles.buttonText}>Yes ₹ 5.3</Text>
-          </TouchableOpacity>
-
-          {/* no button */}
-          <TouchableOpacity style={styles.noButton}>
-            <Text style={styles.buttonText}>No ₹ 4.7</Text>
-          </TouchableOpacity>
-        </View>
-      </TouchableOpacity>
+      </Modal>
     </View>
   );
 };
