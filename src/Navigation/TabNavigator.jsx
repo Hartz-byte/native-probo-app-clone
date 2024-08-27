@@ -34,9 +34,9 @@ const TabNavigator = () => {
         tabBarStyle: {
           backgroundColor: "black",
           borderTopWidth: 2,
-          borderTopColor: "white",
-          borderTopLeftRadius: 40,
-          borderTopRightRadius: 40,
+          // borderTopColor: "white",
+          // borderTopLeftRadius: 40,
+          // borderTopRightRadius: 40,
           height: "12%",
         },
       }}
